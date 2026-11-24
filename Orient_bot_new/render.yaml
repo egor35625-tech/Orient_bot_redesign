@@ -1,0 +1,30 @@
+# Render Blueprint: приложение + PostgreSQL + постоянный диск для фото.
+# Без этого SQLite-файл и папка uploads лежат на временном диске и стираются при каждом деплое/рестарте.
+services:
+  - type: web
+    name: orient-bot
+    runtime: python
+    plan: starter            # постоянный диск (disk) доступен только на платных планах
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    disk:
+      name: uploads
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: WEBAPP_URL
+        sync: false          # https://<имя>.onrender.com
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+      - key: DATABASE_URL
+        fromDatabase:
+          name: orient-db
+          property: connectionString
+
+databases:
+  - name: orient-db
+    plan: basic-256mb

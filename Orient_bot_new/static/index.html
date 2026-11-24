@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFF5E1" />
+  <title>Orient</title>
+  <link rel="icon" type="image/png" href="/static/img/favicon.png" />
+  <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rubik:wght@600;800&family=Shrikhand&display=swap" rel="stylesheet" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 10.8 12 3.6l8.5 7.2V19a1.2 1.2 0 0 1-1.2 1.2H15v-5.6H9v5.6H4.7A1.2 1.2 0 0 1 3.5 19z"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5 5.6 4h12.8L20 9.5M4 9.5V20h16V9.5M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0M10 20v-5h4v5"/></symbol>
+  <symbol id="i-hanger" viewBox="0 0 24 24"><path d="M12 8.2V7a2.3 2.3 0 1 1 2.3 2.3M12 8.2 3.4 14.6a1.3 1.3 0 0 0 .8 2.4h15.6a1.3 1.3 0 0 0 .8-2.4z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.3s-7.6-4.7-9.4-9.5C1.4 7.6 3.3 4.4 6.6 4.4c1.9 0 3.4 1 5.4 3.2 2-2.2 3.5-3.2 5.4-3.2 3.3 0 5.2 3.2 4 6.4-1.8 4.8-9.4 9.5-9.4 9.5z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M12 11.6a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.2 20.6c.6-3.8 3.8-5.9 7.8-5.9s7.2 2.1 7.8 5.9"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m20 20-4.5-4.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.2 8.4h13.6l-1 11.6H6.2zM9 8.4V7a3 3 0 0 1 6 0v1.4"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9M13 4.5v5M7 14.5v5"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.2M12 7.9h.01"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3.5M7.5 8 12 3.5 16.5 8M5 13.5V20h14v-6.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 4.5H5v15h4M15.5 8 19.5 12l-4 4M19.5 12H9"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s6.5-5.6 6.5-11a6.5 6.5 0 0 0-13 0c0 5.4 6.5 11 6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 1.5c.6 4.9 1.6 8.2 3.2 9.3 1.1.8 4.3 1.4 7.3 1.2-3 .2-6.2.8-7.3 1.6-1.6 1.1-2.6 4.4-3.2 9.4-.6-5-1.6-8.3-3.2-9.4-1.1-.8-4.3-1.4-7.3-1.6 3-.2 6.2-.8 7.3-1.6C10.4 9.7 11.4 6.4 12 1.5z" fill="currentColor" stroke="none"/></symbol>
+</svg>
+
+  <div class="app">
+    <header class="topbar">
+      <button id="brandBtn" class="brand" aria-label="Открыть меню">
+        <img src="/static/img/app-icon.png" alt="" class="brand-icon" />
+        <span class="brand-name">ORIENT</span>
+      </button>
+      <div class="top-actions">
+        <button id="searchToggle" class="round-btn" aria-label="Поиск"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></button>
+        <button id="menuBtn" class="round-btn" aria-label="Меню"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      </div>
+    </header>
+
+    <div id="searchBar" class="searchbar hidden">
+      <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+      <input id="searchInput" type="text" placeholder="Поиск товаров и объявлений..." />
+    </div>
+
+    <!-- ГЛАВНАЯ / МАРКЕТ -->
+    <section id="tab-market" class="tab-content">
+      <div class="hero">
+        <svg class="hero-star" aria-hidden="true"><use href="#i-star"/></svg>
+        <svg class="hero-orbit" viewBox="0 0 200 120" aria-hidden="true"><ellipse cx="100" cy="60" rx="92" ry="42" transform="rotate(-18 100 60)"/></svg>
+        <div class="hero-text">
+          <h1 class="hero-title">Ориентир<br>в стиле</h1>
+          <p class="hero-sub">Одежда, которая<br>ведёт за собой</p>
+          <button id="heroBtn" class="pill light">Перейти к каталогу <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <h2>Категории</h2>
+        <button id="catAllBtn" class="link-btn">Все <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+      <div id="categoryTiles" class="cat-row"></div>
+      <select id="categoryFilter" class="hidden"><option value="">Все категории</option></select>
+
+      <div class="promo">
+        <svg class="promo-orbit" viewBox="0 0 200 120" aria-hidden="true"><ellipse cx="100" cy="60" rx="92" ry="42" transform="rotate(-18 100 60)"/></svg>
+        <svg class="promo-star" aria-hidden="true"><use href="#i-star"/></svg>
+        <div class="promo-text">
+          <div class="promo-big">Продавайте с Orient</div>
+          <div class="promo-small">Объявление за минуту — до 5 фото</div>
+        </div>
+        <button id="addItemBtn" class="pill light small-pill"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg> Объявление</button>
+      </div>
+
+      <div id="catalog" class="section-head">
+        <h2>Объявления</h2>
+        <select id="sortSelect" class="pill-select">
+          <option value="new">Сначала новые</option>
+          <option value="price_asc">Дешевле</option>
+          <option value="price_desc">Дороже</option>
+          <option value="views">Популярные</option>
+        </select>
+      </div>
+      <div id="marketList" class="market-grid"></div>
+      <button id="marketMoreBtn" class="secondary hidden more-btn">Показать ещё</button>
+    </section>
+
+    <!-- МАГАЗИНЫ -->
+    <section id="tab-shops" class="tab-content hidden">
+      <h1 class="page-title">Магазины</h1>
+      <div id="shopsListView">
+        <div class="filters">
+          <input id="shopSearchInput" type="text" placeholder="Поиск магазина по названию или городу..." />
+          <select id="shopRatingFilter">
+            <option value="">Любой рейтинг</option>
+            <option value="4.5">4.5+ ⭐</option>
+            <option value="4.0">4.0+ ⭐</option>
+            <option value="3.0">3.0+ ⭐</option>
+          </select>
+          <select id="shopSortSelect">
+            <option value="boost">По рейтингу и топу</option>
+            <option value="rating">Высокий рейтинг</option>
+            <option value="orders">Больше заказов</option>
+            <option value="new">Новые магазины</option>
+          </select>
+        </div>
+        <div id="shopsList"></div>
+      </div>
+
+      <div id="shopItemsView" class="hidden">
+        <button id="shopItemsBackBtn" class="secondary back-btn">← Назад к магазинам</button>
+        <div id="shopItemsHeader" class="card"></div>
+        <div id="shopItemsList" class="market-grid"></div>
+      </div>
+    </section>
+
+
+    <!-- ИЗБРАННОЕ -->
+    <section id="tab-favs" class="tab-content hidden">
+      <h1 class="page-title">Избранное</h1>
+      <div id="favList" class="market-grid"></div>
+    </section>
+
+    <!-- ПОКУПКИ -->
+    <section id="tab-orders" class="tab-content hidden">
+      <h1 class="page-title">Покупки</h1>
+      <div class="chips">
+        <button class="chip active" data-purchases="active">Ожидаемые</button>
+        <button class="chip" data-purchases="done">Совершённые</button>
+      </div>
+      <div id="ordersList"></div>
+    </section>
+
+    <!-- МОИ ОБЪЯВЛЕНИЯ -->
+    <section id="tab-myads" class="tab-content hidden">
+      <h1 class="page-title">Мои объявления</h1>
+      <div id="myAdsChips" class="chips">
+        <button class="chip active" data-myads="private">Мои объявления</button>
+        <button id="myAdsShopChip" class="chip hidden" data-myads="shop">Объявления магазина</button>
+      </div>
+      <div id="myAdsPrivate">
+        <button id="myAddPrivateBtn" class="primary add-btn">+ Новое объявление</button>
+        <div id="myPrivateList" class="market-grid"></div>
+      </div>
+      <div id="myAdsShop" class="hidden">
+        <div id="myShopCard"></div>
+        <button id="myAddShopBtn" class="primary add-btn">+ Объявление магазина</button>
+        <div id="myShopList" class="market-grid"></div>
+        <details id="shopOrdersBox" class="card">
+          <summary>Заказы магазина</summary>
+          <div id="shopOrdersList"></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ПРОФИЛЬ -->
+    <section id="tab-profile" class="tab-content hidden">
+      <h1 class="page-title">Профиль</h1>
+      <div class="card">
+        <h3>Профиль</h3>
+        <label>Telegram @username *</label>
+        <input id="profileUsername" type="text" placeholder="@username" autocapitalize="off" autocomplete="off" />
+        <label>Город по умолчанию</label>
+        <input id="profileCity" type="text" placeholder="Минск" />
+        <label>Адрес по умолчанию / ПВЗ</label>
+        <input id="profileAddress" type="text" placeholder="Город, улица, пункт выдачи..." />
+        <p class="hint left">🇧🇾 Работаем только по Беларуси</p>
+        <button id="saveProfileBtn" class="primary mt">Сохранить профиль</button>
+      </div>
+
+      <div class="card">
+        <h3>Мой магазин</h3>
+        <div id="shopStatusBox"></div>
+        <button id="openShopFormBtn" class="secondary mt">Создать магазин</button>
+      </div>
+
+      <div id="adminLinkCard" class="card hidden">
+        <h3>Модерация</h3>
+        <p class="hint left">Заявки на магазины, блокировка и удаление магазинов, заказы и отзывы.</p>
+        <button id="openAdminBtn" class="primary mt">⚙️ Открыть панель модератора</button>
+      </div>
+    </section>
+
+
+    <!-- НАСТРОЙКИ -->
+    <section id="tab-settings" class="tab-content hidden">
+      <h1 class="page-title">Настройки</h1>
+      <div class="card">
+        <h3>Внешний вид</h3>
+        <label>Тема</label>
+        <select id="themeSelect">
+          <option value="default">Orient (кремовая)</option>
+          <option value="dark">Тёмная</option>
+          <option value="light">Светлая</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- ИНФО -->
+    <section id="tab-info" class="tab-content hidden">
+      <h1 class="page-title">О приложении</h1>
+      <div class="card about">
+        <img src="/static/img/logo-burgundy.png" alt="Orient" class="about-logo" />
+        <p class="hint left">
+          Orient — маркетплейс по Беларуси: объявления пользователей и магазины с проверкой модераторами,
+          отзывами, этапами заказа и чатом по каждой покупке.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- НИЖНЯЯ НАВИГАЦИЯ -->
+  <nav class="bottom-nav" aria-label="Основная навигация">
+    <button class="nav-item active" data-nav="market"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg><span>Главная</span></button>
+    <button class="nav-item" data-nav="shops"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg><span>Магазины</span></button>
+    <button class="nav-item" data-nav="favs"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><span>Избранное</span><i class="nav-dot hidden" id="navFavDot"></i></button>
+    <button class="nav-item" data-nav="profile"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span>Профиль</span></button>
+  </nav>
+
+  <!-- БОКОВОЕ МЕНЮ -->
+  <div id="drawerOverlay" class="drawer-overlay"></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <div class="drawer-brand">
+        <img src="/static/img/app-icon.png" alt="" class="brand-icon" />
+        <span class="brand-name">ORIENT</span>
+      </div>
+      <button id="drawerClose" class="drawer-close" aria-label="Закрыть"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="drawer-user">
+      <div id="drawerAvatar" class="avatar">А</div>
+      <div>
+        <div id="drawerName" class="drawer-name">Гость</div>
+        <div id="drawerHandle" class="drawer-handle"></div>
+      </div>
+    </div>
+    <nav class="drawer-list">
+      <button class="drawer-item" data-nav="market"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg><span>Главная</span></button>
+      <button class="drawer-item" data-nav="shops"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg><span>Магазины</span></button>
+      <button class="drawer-item" data-nav="favs"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><span>Избранное</span><b id="drawerFavCount" class="count hidden">0</b></button>
+      <button class="drawer-item" data-nav="orders"><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg><span>Покупки</span></button>
+      <button class="drawer-item" data-nav="myads"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Мои объявления</span></button>
+      <button class="drawer-item" data-nav="settings"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span>Настройки</span></button>
+      <button class="drawer-item" data-nav="info"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>О приложении</span></button>
+    </nav>
+    <button id="drawerExit" class="drawer-exit">Выйти</button>
+  </aside>
+
+  <!-- ТОВАР: подробная карточка -->
+  <div id="itemDetailModal" class="sheet hidden">
+    <div class="sheet-bar">
+      <button id="itemDetailBack" class="round-btn flat" aria-label="Назад"><svg class="ic" aria-hidden="true"><use href="#i-back"/></svg></button>
+      <div class="sheet-bar-right">
+        <button id="itemDetailFav" class="round-btn flat" aria-label="В избранное"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
+        <button id="itemDetailShare" class="round-btn flat" aria-label="Поделиться"><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg></button>
+      </div>
+    </div>
+    <div id="itemDetailBody" class="sheet-body"></div>
+  </div>
+
+  <!-- РЕГИСТРАЦИЯ (обязательна) -->
+  <div id="regModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Регистрация</h3>
+      <p class="hint left">Укажите ваш @username в Telegram — по нему покупатели и продавцы смогут с вами связаться.</p>
+      <label>Telegram @username *</label>
+      <input id="regUsername" type="text" placeholder="@username" autocapitalize="off" autocomplete="off" />
+      <div id="regError" class="error hidden"></div>
+      <button id="regSubmitBtn" class="primary mt">Продолжить</button>
+      <button id="regCancelBtn" class="secondary mt">Позже</button>
+    </div>
+  </div>
+
+  <!-- ОБЪЯВЛЕНИЕ: создание / редактирование -->
+  <div id="itemModal" class="modal hidden">
+    <div class="modal-content scroll">
+      <h3 id="itemModalTitle">Новое объявление</h3>
+      <div id="itemShopNote" class="hint left hidden">🏬 Контакты, город, доставка и самовывоз берутся из настроек вашего магазина.</div>
+      <label>Категория</label>
+      <select id="itemCategory"><option value="">Без категории</option></select>
+      <label>Название *</label>
+      <input id="itemTitle" type="text" maxlength="120" placeholder="Название товара" />
+      <label>Описание</label>
+      <textarea id="itemDesc" placeholder="Описание"></textarea>
+      <div class="row">
+        <div class="grow"><label>Цена</label><input id="itemPrice" type="text" inputmode="decimal" placeholder="Например 120" /></div>
+        <div><label>Валюта</label>
+          <select id="itemCurrency">
+            <option value="BYN">BYN</option><option value="USD">USD</option>
+            <option value="EUR">EUR</option><option value="RUB">RUB</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="itemPrivateFields">
+        <label>Город</label>
+        <input id="itemCity" type="text" placeholder="Город" />
+        <label>Телефон (необязательно)</label>
+        <input id="itemPhone" type="tel" placeholder="+375 29 123-45-67" />
+        <div id="itemContactModeBox" class="hidden">
+          <label>Способ связи по телефону</label>
+          <select id="itemContactMode">
+            <option value="messages">Только сообщения</option>
+            <option value="calls">Сообщения и звонки</option>
+          </select>
+        </div>
+        <label>Доставка</label>
+        <div class="checks">
+          <label><input type="checkbox" id="del_pickup" /> Самовывоз</label>
+          <label><input type="checkbox" id="del_cdek" /> СДЭК</label>
+          <label><input type="checkbox" id="del_post" /> Почта</label>
+        </div>
+        <input id="pickupAddress" type="text" placeholder="Адрес самовывоза (если есть)" />
+      </div>
+
+      <label>Фото (до 5)</label>
+      <div id="itemExistingPhotos" class="thumbs"></div>
+      <input id="itemPhotos" type="file" accept="image/jpeg,image/png,image/webp" multiple />
+
+      <div class="row mt">
+        <button id="submitItem" class="primary grow">Опубликовать</button>
+        <button id="cancelItem" class="secondary grow">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- МАГАЗИН: создание / редактирование (через модерацию) -->
+  <div id="shopFormModal" class="modal hidden">
+    <div class="modal-content scroll">
+      <h3 id="shopFormTitle">Создание магазина</h3>
+      <p id="shopFormNote" class="hint left">Заявка проверяется модератором. Эти данные подставляются во все объявления магазина — повторно вводить их не придётся.</p>
+
+      <label>Аватар магазина</label>
+      <div class="row">
+        <img id="shopLogoPreview" class="logo-preview hidden" alt="" />
+        <div class="grow">
+          <input id="shopLogoFile" type="file" accept="image/jpeg,image/png,image/webp" />
+          <label class="inline"><input type="checkbox" id="shopLogoRemove" /> Удалить текущий аватар</label>
+        </div>
+      </div>
+
+      <label>Название *</label>
+      <input id="shopName" type="text" maxlength="60" placeholder="Уникальное название магазина" />
+      <label>Описание</label>
+      <textarea id="shopDesc" placeholder="Описание магазина и ассортимента"></textarea>
+      <label>Город</label>
+      <input id="shopCity" type="text" placeholder="Город" />
+      <label>Телефон (необязательно)</label>
+      <input id="shopPhone" type="tel" placeholder="+375 29 123-45-67" />
+      <div id="shopContactModeBox" class="hidden">
+        <label>Способ связи по телефону</label>
+        <select id="shopContactMode">
+          <option value="messages">Только сообщения</option>
+          <option value="calls">Сообщения и звонки</option>
+        </select>
+      </div>
+      <label>Менеджер: @username</label>
+      <input id="shopManagerUsername" type="text" placeholder="@manager" autocapitalize="off" />
+      <label>Менеджер: Telegram ID (для уведомлений о заказах)</label>
+      <input id="shopManagerId" type="text" inputmode="numeric" placeholder="необязательно" />
+      <label>Instagram</label>
+      <input id="shopInstagram" type="text" placeholder="Ссылка или аккаунт" />
+      <label>TikTok</label>
+      <input id="shopTikTok" type="text" placeholder="Ссылка или аккаунт" />
+      <label>Доставка</label>
+      <div class="checks">
+        <label><input type="checkbox" id="shop_del_pickup" /> Самовывоз</label>
+        <label><input type="checkbox" id="shop_del_cdek" /> СДЭК</label>
+        <label><input type="checkbox" id="shop_del_post" /> Почта</label>
+      </div>
+      <input id="shopPickup" type="text" placeholder="Адрес самовывоза (если есть)" />
+
+      <div class="row mt">
+        <button id="submitShopFormBtn" class="primary grow">Отправить на модерацию</button>
+        <button id="cancelShopFormBtn" class="secondary grow">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- МАГАЗИН: информация и отзывы -->
+  <div id="shopDetailModal" class="modal hidden">
+    <div class="modal-content scroll">
+      <div id="shopDetailBody"></div>
+      <hr />
+      <h4>Отзывы покупателей</h4>
+      <div id="shopReviewsList"></div>
+      <div id="shopReviewForm" class="mt">
+        <select id="shopReviewRating">
+          <option value="5">5 ⭐ — Отлично</option><option value="4">4 ⭐ — Хорошо</option>
+          <option value="3">3 ⭐ — Нормально</option><option value="2">2 ⭐ — Плохо</option>
+          <option value="1">1 ⭐ — Ужасно</option>
+        </select>
+        <textarea id="shopReviewText" placeholder="Ваш отзыв о магазине..."></textarea>
+        <button id="submitShopReviewBtn" class="primary mt">Оставить отзыв</button>
+      </div>
+      <button id="closeShopDetailBtn" class="secondary mt">Закрыть</button>
+    </div>
+  </div>
+
+  <!-- ЧАТ ПО ЗАКАЗУ -->
+  <div id="orderChatModal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="orderChatTitle">Чат по заказу</h3>
+      <div id="orderChatMessages" class="chat-box"></div>
+      <div class="row">
+        <input id="orderChatInput" type="text" placeholder="Написать сообщение..." class="grow" />
+        <button id="sendOrderChatBtn" class="primary send-btn">➤</button>
+      </div>
+      <button id="closeOrderChatBtn" class="secondary mt">Закрыть чат</button>
+    </div>
+  </div>
+
+
+  <script src="/static/js/config.js"></script>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/ui.js"></script>
+  <script src="/static/js/favorites.js"></script>
+  <script src="/static/js/profile.js"></script>
+  <script src="/static/js/market.js"></script>
+  <script src="/static/js/shops.js"></script>
+  <script src="/static/js/orders.js"></script>
+  <script src="/static/js/myads.js"></script>
+  <script src="/static/js/init.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ-панель</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Админ-панель</h1>
+
+    <nav class="tabs">
+      <button class="tab active" data-atab="shops">🏬 Магазины</button>
+      <button class="tab" data-atab="orders">Заказы</button>
+      <button class="tab" data-atab="kanban">По этапам</button>
+      <button class="tab" data-atab="stages">⚙️ Этапы</button>
+      <button class="tab" data-atab="reviews">Отзывы</button>
+    </nav>
+
+    <main id="atab-shops">
+      <div class="sub-tabs">
+        <button class="chip active" data-shopsub="apps">Заявки</button>
+        <button class="chip" data-shopsub="list">Все магазины</button>
+      </div>
+      <div id="shopApps"></div>
+      <div id="shopList" class="hidden">
+        <input type="text" id="shopSearch" placeholder="Поиск магазина">
+        <div id="shopListItems"></div>
+      </div>
+    </main>
+
+    <main id="atab-orders" class="hidden">
+      <div id="stats" class="card"></div>
+      <div class="card">
+        <input type="text" id="search" placeholder="Поиск по номеру или клиенту">
+        <select id="statusFilter" style="margin-top:8px;width:100%;padding:12px;border-radius:12px;border:none;">
+          <option value="">Все статусы</option>
+          <option value="active">Активные</option>
+          <option value="completed">Выполненные</option>
+          <option value="rejected">Отклонённые</option>
+        </select>
+        <label class="checkbox-row" style="margin-top:8px;">
+          <input type="checkbox" id="promoFilter">
+          <span>Только с промокодом</span>
+        </label>
+      </div>
+      <div id="orders"></div>
+    </main>
+
+    <main id="atab-kanban" class="hidden">
+      <div id="kanban" class="kanban"></div>
+    </main>
+
+    <main id="atab-stages" class="hidden">
+      <div class="card">
+        <h2>Этапы заказа</h2>
+        <div id="stagesList"></div>
+        <input type="text" id="newStageLabel" placeholder="Название нового этапа" style="margin-top:12px;">
+        <button id="addStage" class="primary" style="margin-top:8px;">+ Добавить этап</button>
+      </div>
+    </main>
+
+    <main id="atab-reviews" class="hidden">
+      <div id="adminReviews"></div>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="modalTitle"></h3>
+      <textarea id="modalInput" placeholder=""></textarea>
+      <div class="modal-actions">
+        <button id="modalCancel" class="secondary">Отмена</button>
+        <button id="modalOk" class="primary">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/admin.js"></script>
+</body>
+</html>
